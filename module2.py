@@ -1,7 +1,8 @@
 import cv2
 
 def locate_object(frame, object_hist):
-    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    roi = frame[100:450, 250:600]
+    hsv_frame = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 
     # apply back projection to image using object_hist as
     # the model histogram
@@ -21,7 +22,6 @@ def locate_object(frame, object_hist):
     closing = cv2.morphologyEx(dilated, cv2.MORPH_CLOSE, kernel)
 
     # masking
-    masked = cv2.bitwise_and(frame, frame, mask=closing)
+    masked = cv2.bitwise_and(roi, roi, mask=closing)
 
     return closing, masked, segment_thresh
-
