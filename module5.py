@@ -10,10 +10,10 @@ def assign(frame, count_defects,fingertips,com):
         distance = module3.dist(fingertips[0], com)
         if distance < 150:
             cv2.putText(frame, '0', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
-
         elif distance < 200:
             cv2.putText(frame, 'Best of luck', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
             mouse.click(Button.left, 2)
+            time.sleep(0.5)         
         else:
             cv2.putText(frame, "ONE", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
             mouse.click(Button.left, 1)
