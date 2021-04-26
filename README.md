@@ -1,2 +1,2 @@
 # MajorProject
-using only required part of frame
+Gesture Controlled Computer System
