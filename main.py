@@ -22,8 +22,8 @@ while True:
     frame, fingertips, com = module3.detect_hand(frame, detected_hand)
     count_defects = module4.recognise(detected_hand)
     module5.assign(frame,count_defects,fingertips,com)
-   
     cv2.imshow("Hand", frame)
+    cv2.setWindowProperty("Hand", cv2.WND_PROP_TOPMOST, 1)
     k = cv2.waitKey(5)
     if k == ord('q'):
         break
